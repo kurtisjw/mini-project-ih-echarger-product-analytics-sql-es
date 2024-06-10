@@ -40,16 +40,7 @@ HAVING distinct_users > 1;
 
 -- Question 5: Average session time per charger
 
-select * from sessions;
 
-with time_minutes as
-(
-select charger_id, (strftime('%s', end_time) = strftime('%s', start_time))/60 as minutes
-from sessions
-)
-select charger_id, round(avg(minutes),3) as avg_session_time
-from time_minutes
-group by charger_id;
 
 -- LEVEL 3
 
